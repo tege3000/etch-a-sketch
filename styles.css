@@ -1,0 +1,21 @@
+body {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container, .header{
+    margin: auto;
+    width: 360px;
+}
+
+.box {
+    border: 1px solid black;
+    width: 20px;
+    height: 20px;
+}
