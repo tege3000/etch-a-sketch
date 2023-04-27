@@ -7,13 +7,34 @@ function resetGridEmpty() {
     }
 }
 
+//determineContainerWidth
+function determineContainerWidth(numSides, Q) {
+    let factor = 1;
+    let widthContainer = 0;
+
+    for(let i = 1; i < 109; i += 10) {
+        if(numSides >= i && numSides <= (i+9)) {
+            widthContainer = (Q*numSides) + (Q*factor);
+            break;
+        }
+        factor++;
+    }
+
+    containerEl.style.width = widthContainer.toString() + "px";
+}
+
 //populates container div with grids of numSides x numSides
 function populateContainer(numSides) {
     for(let i = 0; i < (numSides*numSides); i++) {
         let box = document.createElement('div');
         box.classList = "box";
+        
         containerEl.appendChild(box)
     }
+
+    let Q = document.querySelector(".box").clientWidth;
+
+    determineContainerWidth(numSides, Q);
 }
 
 function hoverOnGrid() {
@@ -28,7 +49,10 @@ function hoverOnGrid() {
 
 //initial grid setup
 function gridInit() {
-    populateContainer(16);
+    let numSides = 16
+
+    populateContainer(numSides);
+
     hoverOnGrid();
 }
 

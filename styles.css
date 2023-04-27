@@ -9,9 +9,12 @@ body {
     flex-wrap: wrap;
 }
 
+.header {
+    text-align: center;
+}
+
 .container, .header{
     margin: auto;
-    width: 360px;
 }
 
 .box {
